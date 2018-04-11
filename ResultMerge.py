@@ -183,13 +183,13 @@ def mergebypoly(srcpath, dstpath, isTask2 = True):
               dstpath,
               py_cpu_nms_poly,isTask2)
 if __name__ == '__main__':
-    split = 'FANet_aug_ohem/val/iter3'
-    merged = 'FANet_aug_ohem/val/iter3_merge'
+    split = 'FANet_aug_ohem_top_n_fewer/val/iter18'
+    merged = 'FANet_aug_ohem_top_n_fewer/val/iter18_merge'
     isTask2 = False 
     #above need to be configed before run 
 
-    srcpath = '/home/yxzh/mount_31/cxma/software/detectron/tmp/{}'.format(split)
-    dstpath = '/home/yxzh/mount_31/cxma/software/detectron/tmp/{}'.format(merged)
+    srcpath = '/home/chixma/workstation/detectron/tmp/{}'.format(split)
+    dstpath = '/home/chixma/workstation/detectron/tmp/{}'.format(merged)
     if not os.path.isdir(dstpath):
         os.makedirs(dstpath)
     mergebypoly(srcpath, dstpath,isTask2)
@@ -197,13 +197,13 @@ if __name__ == '__main__':
     print("Merge Done!")
     #pdb.set_trace()
     if isTask2:
-        detpath = r'/home/yxzh/mount_31/cxma/software/detectron/tmp/'+merged+'/Task2_{:s}.txt'
-        annopath = r'/home/yxzh/dataset/icpr2018/val/labelTxt/{:s}.txt'# change the directory to the path of val/labelTxt,
-        imagesetfile = r'/home/yxzh/dataset/icpr2018/val/val.txt'
+        detpath = r'/home/chixma/workstation/detectron/tmp/'+merged+'/Task2_{:s}.txt'
+        annopath = r'/home/chixma/mount_143/val_labelTxt_nosplit/{:s}.txt'# change the directory to the path of val/labelTxt,
+        imagesetfile = r'/home/chixma/mount_143/val.txt'
         dota_evaluation_task2.main(detpath,annopath,imagesetfile)
     else:
-        detpath = r'/home/yxzh/mount_31/cxma/software/detectron/tmp/'+merged+'/Task1_{:s}.txt'
-        annopath = r'/home/yxzh/dataset/icpr2018/val/labelTxt/{:s}.txt'# change the directory to the path of val/labelTxt
-        imagesetfile = r'/home/yxzh/dataset/icpr2018/val/val.txt'
+        detpath = r'/home/chixma/workstation/detectron/tmp/'+merged+'/Task1_{:s}.txt'
+        annopath = r'/home/chixma/mount_143/val_labelTxt_nosplit/{:s}.txt'# change the directory to the path of val/labelTxt
+        imagesetfile = r'/home/chixma/mount_143/val.txt'
         dota_evaluation_task1.main(detpath,annopath,imagesetfile)
 
