@@ -245,14 +245,14 @@ class splitbase():
         """
         imagelist = GetFileFromThisRootDir(self.imagepath)
         imagenames = [util.custombasename(x) for x in imagelist if (util.custombasename(x) != 'Thumbs')]
-        for name in imagenames:
-            print name
+        for idx, name in enumerate(imagenames):
+            print idx,name
             self.SplitSingle(name, rate, self.ext)
 
 if __name__ == '__main__':
     # example usage of ImgSplit
-    basepath = r'/home/yxzh/mount_143_data/data/icpr2018/DOTA_TEST/test/images'
-    outpath = r'/home/yxzh/mount_31/cxma/dataset/odai/test_split_cxma'
+    basepath = r'/disk1/yxzhu/data/icpr2018/DOTA_TEST/test/images'
+    outpath = r'/disk1/yxzhu/data/icpr2018/68_dataset_cxma/test_split_cxma'
     if not os.path.isdir(outpath):
         os.makedirs(outpath)
     if not os.path.isdir(os.path.join(outpath,'images')):

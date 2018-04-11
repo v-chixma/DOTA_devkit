@@ -183,8 +183,10 @@ def mergebypoly(srcpath, dstpath, isTask2 = True):
               dstpath,
               py_cpu_nms_poly,isTask2)
 if __name__ == '__main__':
-    split = 'PANet_aug_multiscale/val/iter9/test_1024'
-    merged = 'PANet_aug_multiscale/val/iter9/test_merged_1024'
+    split = 'rpn-frcn-mask-multiscale/val/iter18'
+    merged = 'rpn-frcn-mask-multiscale/val/iter18_merged_ms'
+    #split = 'rpn-frcn-mask-bottom-up-aug/val/iter18'
+    #merged = 'rpn-frcn-mask-bottom-up-aug/val/iter18_merged'
     isTask2 = False 
     #above need to be configed before run 
 
